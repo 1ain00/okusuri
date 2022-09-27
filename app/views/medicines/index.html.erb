@@ -6,6 +6,12 @@
 <%= month_calendar events: @medicines do |date, medicines| %>
   <%= date.day %>
 
+<% medicines.each do |medicine| %>
+    <div>
+      <%= link_to medicine.name %>
+    </div>
+  <% end %>
+
 <% end %>
 </div>
 </div>
