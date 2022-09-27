@@ -4,11 +4,18 @@ class MedicinesController < ApplicationController
     @medicine = Medicine.new
   end
 
-  
+  def new
+    @medicine = Medicine.new
+  end
+
+  def create
+    Medicine.create(medicine_parameter)
+    redirect_to medicines_path
+  end
   private
 
   def medicine_parameter
-    params.require(:medicine).permit(:name, :content, :start_time)
+    params.require(:medicine).permit(:name, :memo, :start_time)
   end
 
 end
