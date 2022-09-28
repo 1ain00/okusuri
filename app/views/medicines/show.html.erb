@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+<div class="show">
+<p>
+  <strong>薬の名前</strong>
+  <%= @medicine.name %>
+</p>
+
+<p>
+  <strong>日時</strong>
+  <%= @medicine.start_time.strftime("%m-%d") %>
+</p>
+
+<p>
+  <strong>メモ</strong>
+  <%= @medicine.memo %>
+</p>
+
+<ul class="lists">
+<li class="list-edit">
+<%= link_to '編集', edit_medicine_path(@medicine) %>
+</li>
+<li class="list-deleat">
+<%= link_to '消去',medicine_path(@medicine.id), method: :delete %>
+</li>
+<li class="list-back">
+<%= link_to '戻る', root_path %>
+</li>
+</ul>
+</div>
