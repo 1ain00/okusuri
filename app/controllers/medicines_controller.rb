@@ -12,6 +12,13 @@ class MedicinesController < ApplicationController
     Medicine.create(medicine_parameter)
     redirect_to medicines_path
   end
+
+  def show
+    @medicine = Medicine.find(params[:id])
+  end
+
+
+  
   private
 
   def medicine_parameter

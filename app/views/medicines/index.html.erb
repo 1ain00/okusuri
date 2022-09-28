@@ -1,17 +1,16 @@
 <p id="notice"><%= notice %></p>
-<br>
-
 <%= link_to 'イベント追加', new_medicine_path %> 
+<br>
+<br>
 <div class="col-md-8">
 <%= month_calendar events: @medicines do |date, medicines| %>
+<div class="more_list">
   <%= date.day %>
-
 <% medicines.each do |medicine| %>
-    <div>
-      <%= link_to medicine.name %>
-    </div>
+<div>
+  <%= link_to medicine.start_time.strftime( "%H:%M" ), medicine %>
   <% end %>
-
+</div>
 <% end %>
 </div>
 </div>
