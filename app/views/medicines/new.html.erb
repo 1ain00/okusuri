@@ -2,23 +2,23 @@
 
 <%= form_with(model: @medicine, local: true) do |form| %>
 
-  <div class="title">
+  <div class="name-new">
     <%= form.label :薬の名前 %>
     <%= form.text_field :name %>
   </div>
 
-    <div class="time">
+    <div class="time-new">
     <%= form.label :飲んだ時間 %>
     <%= form.datetime_select :start_time %>
   </div>
 
-  <div class="content">
+  <div class="memo-new">
     <%= form.label :メモ %>
     <%= form.text_field :memo %>
   </div>
 
 
-  <div class="submit">
+  <div class="submit-new">
     <%= form.submit %>
   </div>
 

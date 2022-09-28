@@ -1,0 +1,24 @@
+<%= form_with(model: @medicine, local: true) do |form| %>
+
+  <div class="name-edit">
+    <div class="form-tag">タイトル</div>
+    <%= form.text_field :name %>
+  </div>
+
+
+  <div class="memo-edit">
+    <div class="form-tag">内容</div>
+    <%= form.text_field :memo %>
+  </div>
+
+    <div class="time-edit">
+    <div class="form-tag">時間</div>
+    <%= form.datetime_select :start_time %>
+  </div>
+
+
+  <div class="submit-edit">
+    <%= form.submit %>
+  </div>
+
+<% end %>
