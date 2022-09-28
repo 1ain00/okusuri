@@ -23,11 +23,17 @@ class MedicinesController < ApplicationController
 
   def update
     @medicine = Medicine.find(params[:id])
-    if @medicine.update(blog_parameter)
+    if @medicine.update(medicine_parameter)
       redirect_to medicines_path, notice: "編集しました"
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @medicine = Medicine.find(params[:id])
+    @medicine.destroy
+    redirect_to medicines_path, notice:"削除しました"
   end
   
   private
