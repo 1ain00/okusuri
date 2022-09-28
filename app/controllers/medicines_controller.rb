@@ -9,9 +9,14 @@ class MedicinesController < ApplicationController
   end
 
   def create
-    Medicine.create(medicine_parameter)
-    redirect_to medicines_path
+    @medicine = Medicine.new(medicine_parameter)
+    if @medicine.save
+      redirect_to root_path, notice: "記録しました"
+    else
+      render :new
   end
+end
+
 
   def show
     @medicine = Medicine.find(params[:id])
@@ -23,7 +28,7 @@ class MedicinesController < ApplicationController
 
   def update
     @medicine = Medicine.find(params[:id])
-    if @medicine.update(blog_parameter)
+    if @medicine.update(medicine_parameter)
       redirect_to medicines_path, notice: "編集しました"
     else
       render 'edit'
