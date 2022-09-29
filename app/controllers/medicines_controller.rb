@@ -46,7 +46,7 @@ end
   private
 
   def medicine_params
-    params.require(:medicine).permit(:name, :memo, :start_time). merge(user_id: current_user.id)
+    params.require(:medicine).permit(:name, :memo, :start_time, :image). merge(user_id: current_user.id)
   end
 
   def set_medicine

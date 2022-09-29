@@ -15,6 +15,9 @@
   <%= @medicine.memo %>
 </p>
 
+<p>
+    <%= image_tag @medicine.image.variant(resize: '200x200'), class: 'medicine-image' if @medicine.image.attached? %>
+</p>
 <ul class="lists">
 <li class="list-edit">
 <%= link_to '編集', edit_medicine_path(@medicine) %>

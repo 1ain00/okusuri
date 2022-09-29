@@ -17,9 +17,26 @@
     <%= form.text_field :memo %>
   </div>
 
+  <div class="img-upload">
+      <div class="weight-bold-text">
+        写真
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= form.file_field :image, id:"medicine-image" %>
+      </div>
+    </div>
+
 
   <div class="submit-new">
     <%= form.submit %>
   </div>
-
+  <ul class="lists">
+<li class="list-back">
+<%= link_to '戻る', root_path %>
+</li>
+</ul>
 <% end %>
