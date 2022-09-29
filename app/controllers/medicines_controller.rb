@@ -1,7 +1,11 @@
 class MedicinesController < ApplicationController
+  before_action :set_medicine, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit]
+  before_action :move_to_index, only: [:show, :edit, :destroy]
+
   def index
-    @medicines= Medicine.all
-    @medicine = Medicine.new
+    @medicines = Medicine.where(user_id: current_user&.id)
+
   end
 
   def new
@@ -9,7 +13,7 @@ class MedicinesController < ApplicationController
   end
 
   def create
-    @medicine = Medicine.new(medicine_parameter)
+    @medicine = Medicine.new(medicine_params)
     if @medicine.save
       redirect_to root_path, notice: "記録しました"
     else
@@ -19,16 +23,15 @@ end
 
 
   def show
-    @medicine = Medicine.find(params[:id])
+
   end
 
   def edit
-    @medicine = Medicine.find(params[:id])
+ 
   end
 
   def update
-    @medicine = Medicine.find(params[:id])
-    if @medicine.update(medicine_parameter)
+    if @medicine.update(medicine_params)
       redirect_to medicines_path, notice: "編集しました"
     else
       render 'edit'
@@ -36,15 +39,27 @@ end
   end
 
   def destroy
-    @medicine = Medicine.find(params[:id])
     @medicine.destroy
     redirect_to medicines_path, notice:"削除しました"
   end
   
   private
 
-  def medicine_parameter
-    params.require(:medicine).permit(:name, :memo, :start_time)
+  def medicine_params
+    params.require(:medicine).permit(:name, :memo, :start_time). merge(user_id: current_user.id)
+  end
+
+  def set_medicine
+    @medicine = Medicine.find(params[:id])
+  end
+
+  def move_to_index
+    unless user_signed_in? && current_user.id == @medicine.user_id
+      redirect_to action: :index
+    end
   end
 
 end
+
+
+
