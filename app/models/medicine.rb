@@ -5,6 +5,7 @@ class Medicine < ApplicationRecord
   with_options presence: true do
     validates :name
     validates :start_time
+    validates :number
   end
   validate :image
     def was_attached?

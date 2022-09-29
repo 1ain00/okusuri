@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2022_09_29_074059) do
 
   create_table "medicines", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
+    t.string "number"
     t.text "memo"
     t.datetime "start_time"
     t.datetime "created_at", precision: 6, null: false

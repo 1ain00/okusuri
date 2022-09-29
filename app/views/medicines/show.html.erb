@@ -6,8 +6,13 @@
 </p>
 
 <p>
+    <strong>錠数</strong>
+    <%= @medicine.number %>
+</p>
+
+<p>
   <strong>日時</strong>
-  <%= @medicine.start_time.strftime("%m-%d") %>
+  <%= @medicine.start_time.strftime("%H:%M") %>
 </p>
 
 <p>
