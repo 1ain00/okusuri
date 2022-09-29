@@ -17,7 +17,7 @@ class MedicinesController < ApplicationController
     if @medicine.save
       redirect_to root_path, notice: "記録しました"
     else
-      render :new
+      render action:  :new
   end
 end
 
@@ -46,7 +46,7 @@ end
   private
 
   def medicine_params
-    params.require(:medicine).permit(:name, :memo, :start_time). merge(user_id: current_user.id)
+    params.require(:medicine).permit(:name, :memo, :start_time, :image, :number). merge(user_id: current_user.id)
   end
 
   def set_medicine

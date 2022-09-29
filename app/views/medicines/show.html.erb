@@ -6,8 +6,13 @@
 </p>
 
 <p>
+    <strong>錠数</strong>
+    <%= @medicine.number %>
+</p>
+
+<p>
   <strong>日時</strong>
-  <%= @medicine.start_time.strftime("%m-%d") %>
+  <%= @medicine.start_time.strftime("%H:%M") %>
 </p>
 
 <p>
@@ -15,6 +20,9 @@
   <%= @medicine.memo %>
 </p>
 
+<p>
+    <%= image_tag @medicine.image.variant(resize: '200x200'), class: 'medicine-image' if @medicine.image.attached? %>
+</p>
 <ul class="lists">
 <li class="list-edit">
 <%= link_to '編集', edit_medicine_path(@medicine) %>
