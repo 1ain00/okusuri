@@ -1,15 +1,31 @@
 <p id="notice"><%= notice %></p>
-<%= link_to '記録する', new_medicine_path %> 
+
+<% if user_signed_in? %>
+ こんにちは、
+<%= " #{current_user.nickname} さん"%>
+  <div class="user_nav grid-6">
+  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+   <%= link_to '記録する', new_medicine_path %> 
+ </div>
+  <% else %>
+ <div class="grid-6">
+   <%= link_to "ログイン", new_user_session_path, class: "post" %>
+    <%= link_to "新規登録", new_user_registration_path, class: "post" %>
+    </div>
+    <% end %>
 <br>
 <br>
 <div class="col-md-8">
 <%= month_calendar events: @medicines do |date, medicines| %>
 <div class="more_list">
   <%= date.day %>
+
 <% medicines.each do |medicine| %>
 <div>
+
   <%= link_to medicine.start_time.strftime( "%H:%M" ), medicine %>
   <% end %>
+
 </div>
 <% end %>
 </div>
