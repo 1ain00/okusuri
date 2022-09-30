@@ -1,0 +1,21 @@
+body { overflow-y: scroll; }
+
+.logout {
+  display: flex;
+  text-decoration: none;
+  color: #333333;
+ font-weight: bold;
+  font-size: 15px;
+  position: absolute;
+  left: 130px;
+  bottom: 18px;
+
+}
+
+.footer {
+  width: 100vw;
+  height: 8vh;
+  color: #FFF;
+  background-color: antiquewhite;
+  position: relative;
+}
