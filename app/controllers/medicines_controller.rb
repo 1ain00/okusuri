@@ -15,7 +15,7 @@ class MedicinesController < ApplicationController
   def create
     @medicine = Medicine.new(medicine_params)
     if @medicine.save
-      redirect_to root_path, notice: "記録しました"
+      redirect_to root_path
     else
       render action:  :new
   end
@@ -32,7 +32,7 @@ end
 
   def update
     if @medicine.update(medicine_params)
-      redirect_to medicines_path, notice: "編集しました"
+      redirect_to  medicine_path(@medicine.id), method: :show
     else
       render 'edit'
     end

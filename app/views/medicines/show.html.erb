@@ -1,34 +1,37 @@
+<%= render "shared/header" %>
+
 <div class="show">
-<p>
+
+<div class="medicine-name">
   <strong>薬の名前</strong>
   <%= @medicine.name %>
-<p>
+  </div>
+
+<div class="medicine-number">
     <strong>錠数</strong>
     <%= @medicine.number %>
-</p>
+    </div>
 
-<p>
-  <strong>日時</strong>
+<div class="medicine-time">
+  <strong>飲んだ時間</strong>
   <%= @medicine.start_time.strftime("%H:%M") %>
-</p>
+</div>
 
-<p>
+
+<div class="medicine-memo">
   <strong>メモ</strong>
   <%= @medicine.memo %>
-</p>
+  </div>
 
-<p>
+
+<div class="medicine-image">
     <%= image_tag @medicine.image.variant(resize: '200x200'), class: 'medicine-image' if @medicine.image.attached? %>
-</p>
-<ul class="lists">
-<li class="list-edit">
-<%= link_to '編集', edit_medicine_path(@medicine) %>
-</li>
-<li class="list-deleat">
-<%= link_to '消去',medicine_path(@medicine.id), method: :delete %>
-</li>
-<li class="list-back">
-<%= link_to '戻る', root_path %>
-</li>
-</ul>
 </div>
+
+<div class="lists">
+<%= link_to '編集', edit_medicine_path(@medicine), class: "list-edit" %>
+</div>
+
+
+</div>
+<%= render "shared/footer" %>

@@ -16,32 +16,53 @@
   border-radius: 5px;
 }
 
-/* 編集ページ */
 
-.user_name_index{
-  padding: 10px;
+
+/* show */
+
+.show{
+
+  margin: 50px 0 33px 70px;
+  font-size: 20px; 
+
 }
 
+
+.medicine-name{
+  margin-bottom: 10px;
+
+}
+
+.medicine-number{
+  margin-bottom: 10px;
+
+}
+
+.medicine-time{
+  margin-bottom: 10px;
+
+}
+
+.medicine-memo{
+  margin-bottom: 30px;
+
+}
+.medicine-image{
+  margin-bottom: 10px;
+
+}
 
 .lists{
-  list-style: none;
-  padding-left: 0;
+margin: 40px 0 70px 0;
 }
-
 
 .list-edit{
-  padding: 5px 0;
-}
-
-.list-deleat{
-  padding: 5px 0;
-}
-
-.list-back{
-  padding: 5px 0;
-}
-
-.list-back-new{
-  padding: 5px 0;
+  color: #333333;
+  font-size: 20px;
+  padding:13px 80px;
+  border:2px solid;
+  border: color #000;
+  border-radius: 5px;
+  text-decoration: none;
 }
 
