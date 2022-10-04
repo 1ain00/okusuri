@@ -32,7 +32,7 @@ end
 
   def update
     if @medicine.update(medicine_params)
-      redirect_to  medicine_path(@medicine.id), method: :show
+      redirect_to  root_path
     else
       render 'edit'
     end

@@ -1,46 +1,16 @@
-<h1>記録する</h1>
+<body>
+<header>
+<%= render "shared/header" %>
+</header>
+<main>
+<%= render "shared/form" %>
 
-<%= form_with(model: @medicine, local: true) do |form| %>
+<div class="lists">
+<%= link_to '戻る', root_path, class: "list-back" %>
+</div>
+ </main>
 
-  <div class="name-new">
-    <%= form.label :薬の名前 %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="number-new">
-    <%= form.label :錠数 %>
-    <%= form.text_field :number %>
-  </div>
-
-    <div class="time-new">
-    <%= form.label :飲んだ時間 %>
-    <%= form.datetime_select :start_time %>
-  </div>
-
-  <div class="memo-new">
-    <%= form.label :メモ %>
-    <%= form.text_field :memo %>
-  </div>
-
-  <div class="img-upload">
-      <div class="weight-bold-text">
-        写真
-      </div>
-      <div class="click-upload">
-        <p>
-          クリックしてファイルをアップロード
-        </p>
-        <%= form.file_field :image, id:"medicine-image" %>
-      </div>
-    </div>
-
-
-  <div class="submit-new">
-    <%= form.submit %>
-  </div>
-  <ul class="lists">
-<li class="list-back">
-<%= link_to '戻る', root_path %>
-</li>
-</ul>
-<% end %>
+<footer>
+<%= render "shared/footer" %>
+</footer>
+</body>

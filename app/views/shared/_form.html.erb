@@ -1,0 +1,38 @@
+<%= form_with(model: @medicine, local: true) do |form| %>
+ 
+ <div class="forms">
+ 
+    <div class="form-names">薬の名前</div>
+    <%= form.text_field :name,class:"form-name" %>
+  
+
+    <div class="form-numbers">錠数</div>
+    <%= form.text_field :number,class:"form-number" %>
+ 
+
+    <div class="form-times">飲んだ時間</div>
+    <%= form.datetime_select :start_time, class:"form-start-time" %>
+  
+
+    <div class="form-memos">メモ</div>
+    <%= form.text_field :memo, class:"form-memo" %>
+ 
+ 
+
+  <div class="img-form">
+    <div class="weight-bold-text">
+      写真
+    </div>
+    <div class="click-upload">
+
+    <p>
+  <%= form.file_field :image, id:"medicine-image" %>
+  </p>
+  </div>
+    </div>
+
+<div class="submit">
+<input type="submit" value="記録する" class="send">
+</div>
+</div>
+  <% end %>
