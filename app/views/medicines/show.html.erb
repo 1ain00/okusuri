@@ -1,25 +1,28 @@
+<body>
+<header>
 <%= render "shared/header" %>
-
+</header>
+<main>
 <div class="show">
 
 <div class="medicine-name">
-  <strong>薬の名前</strong>
+  <strong>薬の名前:</strong>
   <%= @medicine.name %>
   </div>
 
 <div class="medicine-number">
-    <strong>錠数</strong>
+    <strong>錠数:</strong>
     <%= @medicine.number %>
     </div>
 
 <div class="medicine-time">
-  <strong>飲んだ時間</strong>
+  <strong>飲んだ時間:</strong>
   <%= @medicine.start_time.strftime("%H:%M") %>
 </div>
 
 
 <div class="medicine-memo">
-  <strong>メモ</strong>
+  <strong>メモ:</strong>
   <%= @medicine.memo %>
   </div>
 
@@ -27,11 +30,18 @@
 <div class="medicine-image">
     <%= image_tag @medicine.image.variant(resize: '200x200'), class: 'medicine-image' if @medicine.image.attached? %>
 </div>
+</main>
+ <div class='lists'>
 
-<div class="lists">
 <%= link_to '編集', edit_medicine_path(@medicine), class: "list-edit" %>
+
+<%= link_to '戻る', root_path, class: "list-back" %>
+
+   </div>
 </div>
 
-
-</div>
+<footer>
 <%= render "shared/footer" %>
+</footer>
+</body>
+

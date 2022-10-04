@@ -1,17 +1,27 @@
+<body>
+<header>
 <%= render "shared/header" %>
+</header>
+<main>
 <div class='lists-content-login'>
   <% if user_signed_in?%>
     <%= link_to '記録する', new_medicine_path, class: "create_content"  %>
     <%end%>
+     <ul>
     <div class="col-md-8">
       <%= month_calendar events: @medicines do |date, medicines| %>
-     <div class="more_list">
-      <%= date.day %>
-      <% medicines.each do |medicine| %>
-      <%= link_to medicine.start_time.strftime( "%H:%M" ), medicine %>
+    <%= date.day %>
+    <li><% medicines.each do |medicine| %></li>
+    <li><%= link_to medicine.start_time.strftime( "%H:%M" ), medicine, class: "medicine-time-index" %></li>
+    </ul>
       <% end %>
       <% end %>
     </div>
   </div>
 </div>
+</main>
+
+<footer>
 <%= render "shared/footer" %>
+</footer>
+</body>
