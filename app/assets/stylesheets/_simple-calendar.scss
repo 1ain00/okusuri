@@ -1,0 +1,29 @@
+body { overflow-y: scroll; }
+.calendar-heading {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.calendar-title {
+  font-size: 50px;
+}
+
+.calendar-previous {
+margin-right: 25px;
+font-size: 20px;
+}
+
+.calendar-next {
+margin-left: 25px;
+font-size: 20px;
+}
+
+.lists-content-login {
+padding-top: 30px;
+margin: 0 20px;
+}
+
+.medicine-time-index{
+  list-style: none;
+}

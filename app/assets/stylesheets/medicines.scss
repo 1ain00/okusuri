@@ -1,24 +1,116 @@
 // Place all the styles related to the medicines controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.lists{
-  list-style: none;
-  padding-left: 0;
+
+
+body {
+  display: flex;
+  flex-flow: column; 
+  min-height: 100vh; 
 }
+main {
+  flex: 1; 
+}
+
+
+/* index */
+
+.create_content {
+  text-decoration: none;
+  color: #333333;
+  font-size: 20px;
+  padding:15px 30px;
+  margin-left: 90px;
+  text-align:center;
+  border:2px solid;
+  border: color #000;
+  border-radius: 5px;
+}
+
+
+
+/* show */
+
+.show{
+
+  margin: 50px 0 0 70px;
+  font-size: 20px; 
+
+}
+
+
+.medicine-name{
+  margin-bottom: 10px;
+
+}
+
+.medicine-number{
+  margin-bottom: 10px;
+
+}
+
+.medicine-time{
+  margin-bottom: 10px;
+
+}
+
+.medicine-memo{
+  margin-bottom: 30px;
+
+}
+.medicine-image{
+  margin-bottom: 10px;
+
+}
+.lists{
+  margin: 0 0 70px 50px;
+
+}
+
 
 
 .list-edit{
-  padding: 5px 0;
-}
+  color: #333333;
+  font-size: 18px;
+  border:2px solid;
+  border: color #000;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  width: 205px;
+  height: 30px;
+  padding: 10px 0;
+  margin-bottom: 30px;
 
-.list-deleat{
-  padding: 5px 0;
 }
 
 .list-back{
-  padding: 5px 0;
+  color: #333333;
+  font-size: 18px;
+  border:2px solid;
+  border: color #000;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  width: 205px;
+  height: 30px;
+  padding: 10px 0;
+
 }
 
-.list-back-new{
-  padding: 5px 0;
+.list-deleat{
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  width: 205px;
+  height: 30px;
+  padding: 10px 0;
+  margin-top: 30px;
 }

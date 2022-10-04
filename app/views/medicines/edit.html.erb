@@ -1,43 +1,20 @@
-<%= form_with(model: @medicine, local: true) do |form| %>
-  <div class="name-edit">
-    <div class="form-tag">薬の名前</div>
-    <%= form.text_field :name %>
-  </div>
+<body>
+<header>
+<%= render "shared/header" %>
+</header>
+<main>
+<%= render "shared/form" %>
 
-    <div class="time-edit">
-    <div class="form-tag">飲んだ時間</div>
-    <%= form.datetime_select :start_time %>
-  </div>
+  </main>
 
-   <div class="number-new">
-   <div class="form-tag">飲んだ時間</div>
-    <%= form.text_field :number %>
-  </div>
+  <div class="lists">
+<%= link_to '戻る', root_path, class: "list-back" %>
+<%= link_to '消去',medicine_path(@medicine.id), method: :delete, class:"list-deleat" %>
 
-  <div class="memo-edit">
-    <div class="form-tag">メモ</div>
-    <%= form.text_field :memo %>
-  </div>
- 
 
-  <div class="img-upload">
-    <div class="weight-bold-text">
-      写真
-    </div>
-    <div class="click-upload">
-    クリックしてファイルをアップロード
-    <p>
-  <%= form.file_field :image, id:"medicine-image" %>
-  </p>
-  </div>
-    </div>
 
-  <div class="submit-edit">
-    <%= form.submit %>
-  </div>
-  <ul class="lists">
-<li class="list-back">
-<%= link_to '戻る', root_path %>
-</li>
-</ul>
-<% end %>
+</div>
+<footer>
+<%= render "shared/footer" %>
+</footer>
+</body>

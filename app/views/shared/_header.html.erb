@@ -1,0 +1,13 @@
+<%# CSS・・・assets/stylesheets/shared/header.css %>
+<header class='top-page-header'>
+    <div class='lists-right'>
+      <% if user_signed_in?%>
+      <%= link_to current_user.nickname, root_path, class: "user-nickname"  %>
+     <% else %>
+      <%= link_to 'ログイン', new_user_session_path, class: "login" %>
+      <%= link_to '新規登録', new_user_registration_path, class: "sign-up" %>
+    <% end %>
+    </div>
+</header>
+
+ 
