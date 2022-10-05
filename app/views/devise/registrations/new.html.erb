@@ -1,31 +1,42 @@
-<div class="contents row">
-  <div class="container">
-    <h2>新規登録</h2>
-    <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+<body>
+<header>
+<%= render "shared/header" %>
+</header>
+<main>
+<div class="new-registration">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email %>
-      </div>
+  <div class="field-name">
+    <%= f.label :カレンダー名 %> <em>(6文字以内)</em><br />
+    <%= f.text_field :nickname, autofocus: true, maxlength: "6" %>
+   </div>
 
-      <div class="field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "新規登録" %>
-      </div>
-    <% end %>
+  <div class="field-mail">
+    <%= f.label :メールアドレス %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
-</div>
 
+  <div class="field-password1">
+    <%= f.label :パスワード %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %>文字以上半角英数字)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field-password2">
+    <%= f.label :パスワード（確認） %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "新規登録" %>
+  </div>
+<% end %>
+</div>
+</main>
+<footer>
+<%= render "shared/footer" %>
+</footer>
+</body>
