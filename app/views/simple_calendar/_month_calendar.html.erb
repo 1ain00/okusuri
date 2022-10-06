@@ -1,15 +1,19 @@
 <div class="simple-calendar">
   <div class="calendar-heading">
   <div class="calendar-previous">
-    <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view %>
+    <%= link_to t('simple_calendar.previous', default: '◀'), calendar.url_for_previous_view, class: "m" %>
    </div>
+<div class=calendar>
+  <span class="calendar-year"><%= "#{start_date.year}年" %></span>
    <div class="month-name">
-    <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
+    <span class="calendar-title"><%= "#{start_date.month}月" %></span>
+   </div>
    </div>
    <div class="calendar-next">
-    <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %>
+    <%= link_to t('simple_calendar.next', default: '▶'), calendar.url_for_next_view, class: "m"%>
   </div>
   </div>
+
   <table class="table table-striped">
     <thead>
       <tr>
