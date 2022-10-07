@@ -5,7 +5,7 @@
 <main>
 <div class='lists-content-login'>
   <% if user_signed_in?%>
-     <%= link_to 'お薬登録', medicinelists_path, class: "create_medicinelist"  %>
+     <%= link_to 'お薬登録', new_medicinelists_path, class: "create_medicinelist"  %>
     <%= link_to '記録する', new_medicine_path, class: "create_content"  %>
     <%end%>
      <ul>

@@ -1,10 +1,9 @@
 class MedicinelistsController < ApplicationController
-  def index
-    @medicinelists = Medicinelist.all
-  end
+
 
   def new
-    @medicinelist = Medicinelist.new
+    @medicinelists = Medicinelist.all
+      @medicinelist = Medicinelist.new
   end
 
   def create
@@ -13,6 +12,7 @@ class MedicinelistsController < ApplicationController
   end
 
   def medicinelist_params
-    params.require(:medicinelist).permit(:morning, :morningnum, :afternoon, :afternoonnum, :evening, :eveningnum, :beforesleep, :beforesleepnum). merge(user_id: current_user.id)
+    params.require(:medicinelist).permit(:morning, :morningnum, :afternoon, :afternoonnum, :evening, :eveningnum, :beforesleep, :beforesleepnum)
+    .merge(user_id: current_user.id)
   end
 end

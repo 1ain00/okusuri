@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   get 'medicines/index'
   root to: 'medicines#index'
   resources :medicines 
-  resources :medicinelists
   resources :users, only: :show
-
+  resource :medicinelists 
 end
 
