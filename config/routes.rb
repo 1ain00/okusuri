@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   get 'medicines/index'
   root to: 'medicines#index'
-  resources :medicines do
+  resources :medicines 
   resources :users, only: :show
-end
+  resource :medicinelists 
 end
 

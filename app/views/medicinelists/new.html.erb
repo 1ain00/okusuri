@@ -1,0 +1,49 @@
+<body>
+<header>
+<%= render "shared/header" %>
+</header>
+<main>
+<%= form_with(model: @medicinlist, local: true) do |form| %>
+ 
+ <div class="listt-forms">
+
+
+
+ <div class="mornings">
+    <div class="form-morning">朝</div>
+    <%= form.text_field :morning,class:"morning-medicine" %>
+<input type="submit" value="記録する" class="send-list">
+</div>
+ <% @medicinelists.each do |medicinelist| %>
+ <ul>
+   <li class="medicine-morning-list">
+     <%= medicinelist.morning %>
+     <% end %>
+     </li>
+     </ul>
+
+
+<div class="afternoon">
+    <div class="form-afternoon">昼</div>
+    <%= form.text_field :afternoon,class:"afternoon-medicine" %>
+<input type="submit" value="記録する" class="send-list">
+</div>
+
+<div class="evenings">
+    <div class="form-evening">夕</div>
+    <%= form.text_field :evening,class:"evening-medicine" %>
+<input type="submit" value="記録する" class="send-list">
+</div>
+
+<div class="before-sleeps">
+    <div class="form-beforesleep">寝</div>
+    <%= form.text_field :beforesleep,class:"fbeforesleep-medicine" %>
+<input type="submit" value="記録する" class="send-list">
+</div>
+
+<%end%>
+</main>
+<footer>
+<%= render "shared/footer" %>
+</footer>
+</body>
