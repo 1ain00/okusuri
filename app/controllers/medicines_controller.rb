@@ -40,7 +40,7 @@ end
 
   def destroy
     @medicine.destroy
-    redirect_to medicines_path, notice:"削除しました"
+    redirect_to medicines_path
   end
   
   private

@@ -3,42 +3,64 @@
 <%= render "shared/header" %>
 </header>
 <main>
-<%= form_with(model: @medicinlist, local: true) do |form| %>
- 
- <div class="listt-forms">
 
+<%= form_with(model: @medicinelist, local: true) do |form| %>
+ <div class="lists">
+    <div class="list-names">薬の名前</div>
+    <%= form.text_field :name,class:"list-name" %>
+    <div class="list-numbers">錠数</div>
+    <%= form.text_field :number,class:"list-number" %>
+    <%= form.collection_select(:timing_id, Timing.all, :id, :name, {}, {class:"timing-select"}) %>
 
-
- <div class="mornings">
-    <div class="form-morning">朝</div>
-    <%= form.text_field :morning,class:"morning-medicine" %>
-<input type="submit" value="記録する" class="send-list">
-</div>
- <% @medicinelists.each do |medicinelist| %>
- <ul>
-   <li class="medicine-morning-list">
-     <%= medicinelist.morning %>
-     <% end %>
-     </li>
-     </ul>
-
-
-<div class="afternoon">
-    <div class="form-afternoon">昼</div>
-    <%= form.text_field :afternoon,class:"afternoon-medicine" %>
+<div class="submit-list">
 <input type="submit" value="記録する" class="send-list">
 </div>
 
-<div class="evenings">
-    <div class="form-evening">夕</div>
-    <%= form.text_field :evening,class:"evening-medicine" %>
-<input type="submit" value="記録する" class="send-list">
+
+
+
+
+<div class= "timing-lists">
+
+<div class="medicinelistmorning">
+<div class="timing-mornings">
+<div class="timing-list">朝</div>
+</div>
+<% @medicinelistmorning.each do |medicinelist| %>
+<ul class="medicinelists">
+  <li><%= medicinelist.name %>:<%= medicinelist.number %>錠</li>
+  </ul>
+<% end %>
 </div>
 
-<div class="before-sleeps">
-    <div class="form-beforesleep">寝</div>
-    <%= form.text_field :beforesleep,class:"fbeforesleep-medicine" %>
-<input type="submit" value="記録する" class="send-list">
+<div class="timing-afternoons">
+<div class="timing-list">昼</div>
+</div>
+<% @medicinelistafternoon.each do |medicinelist| %>
+<ul class="medicinelists">
+  <li><%= medicinelist.name %>:<%= medicinelist.number %>錠</li>
+  </ul>
+<% end %>
+
+<div class="timing-evenings">
+<div class="timing-list">夕</div>
+</div>
+<% @medicinelistevening.each do |medicinelist| %>
+ <ul class="medicinelists">
+  <li><%= medicinelist.name %>:<%= medicinelist.number %>錠</li>
+</ul>
+<% end %>
+
+<div class="timing-beforesleeps">
+<div class="timing-list">寝</div>
+</div>
+<% @medicinelistbeforesleep.each do |medicinelist| %>
+ <ul class="medicinelists">
+  <li><%= medicinelist.name %>:<%= medicinelist.number %>錠</li>
+</ul>
+<% end %>
+
+</div>
 </div>
 
 <%end%>
