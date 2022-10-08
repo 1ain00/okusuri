@@ -16,11 +16,13 @@ class MedicinelistsController < ApplicationController
     if @medicinelist.save
       redirect_to  new_medicinelists_path
   end
+end
+
  
-  end
 
   def medicinelist_params
     params.require(:medicinelist).permit(:name, :number, :timing_id)
     .merge(user_id: current_user.id)
   end
+
 end
