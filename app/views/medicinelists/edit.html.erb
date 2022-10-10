@@ -1,4 +1,8 @@
-
+<body>
+<header>
+<%= render "shared/header" %>
+</header>
+<main>
 <%= form_with(model: @medicinelist, local: true) do |form| %>
 <div class="titele">
 
@@ -12,8 +16,14 @@
     <%= form.collection_select(:timing_id, Timing.all, :id, :name, {}, {class:"timing-select"}) %>
 <div class="submit-list">
 <input type="submit" value="編集する" class="send">
-<%= link_to '消去', medicinelist_path(@medicinelist.id), method: :delete, class:"list-deleat2" %>
 <%= link_to '戻る', new_medicinelist_path, class: "list-back" %>
+<%= link_to '消去', medicinelist_path(@medicinelist.id), method: :delete, class:"list-deleat" %>
+
 </div>
 </div>
 <%end%>
+</main>
+<footer>
+<%= render "shared/footer" %>
+</footer>
+</body>
