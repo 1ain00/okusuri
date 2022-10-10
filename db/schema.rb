@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 2022_10_07_082239) do
     t.string "number"
     t.integer "user_id"
     t.integer "timing_id", null: false
+    t.text "memo"
+    t.boolean "done", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

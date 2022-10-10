@@ -5,6 +5,8 @@ class CreateMedicinelists < ActiveRecord::Migration[6.0]
       t.string :number
       t.integer :user_id
       t.integer    :timing_id     , null: false
+      t.text :memo
+      t.boolean :done, default: false
       t.timestamps
     end
   end

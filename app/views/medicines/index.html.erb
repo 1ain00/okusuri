@@ -5,9 +5,10 @@
 <main>
 <div class='lists-content-login'>
   <% if user_signed_in?%>
-     <%= link_to 'お薬登録', new_medicinelists_path, class: "create_medicinelist"  %>
+     <%= link_to 'お薬登録', new_medicinelist_path, class: "create_medicinelist"  %>
     <%= link_to '記録する', new_medicine_path, class: "create_content"  %>
     <%end%>
+    
      <ul>
     <div class="col-md-8">
       <%= month_calendar events: @medicines do |date, medicines| %>

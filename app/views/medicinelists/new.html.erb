@@ -1,68 +1,91 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
 <body>
 <header>
 <%= render "shared/header" %>
 </header>
 <main>
-
 <%= form_with(model: @medicinelist, local: true) do |form| %>
+<div class="titele">
  <div class="lists">
     <div class="list-names">薬の名前</div>
     <%= form.text_field :name,class:"list-name" %>
     <div class="list-numbers">錠数</div>
     <%= form.text_field :number,class:"list-number" %>
+  <div class="form-memos">メモ</div>
+    <%= form.text_field :memo, class:"list-memo" %>
+ 
+        <div class="list-numbers">タイミング</div>
     <%= form.collection_select(:timing_id, Timing.all, :id, :name, {}, {class:"timing-select"}) %>
-
 <div class="submit-list">
 <input type="submit" value="記録する" class="send-list">
+
 </div>
-
-
-
-
+</div>
 
 <div class= "timing-lists">
 
-<div class="medicinelistmorning">
+<div class="medicinelist">
+<div class="message">薬の名前をクリックして編集</div>
+
 <div class="timing-mornings">
 <div class="timing-list">朝</div>
-</div>
 <% @medicinelistmorning.each do |medicinelist| %>
 <ul class="medicinelists">
-  <li><%= medicinelist.name %>:<%= medicinelist.number %>錠</li>
+  <li><%=  check_box_tag '', '', medicinelist.done, {'data-id' => medicinelist.id } %>
+  <%= link_to medicinelist.name, edit_medicinelist_path(medicinelist.id), method: :get, class: "m" %>:
+  <%= medicinelist.number %>錠
+  <%= medicinelist.memo %></li>
   </ul>
 <% end %>
+
 </div>
 
 <div class="timing-afternoons">
 <div class="timing-list">昼</div>
-</div>
 <% @medicinelistafternoon.each do |medicinelist| %>
 <ul class="medicinelists">
-  <li><%= medicinelist.name %>:<%= medicinelist.number %>錠</li>
+  <li><%=  check_box_tag '', '', medicinelist.done, {'data-id' => medicinelist.id } %>
+ <%= link_to medicinelist.name, edit_medicinelist_path(medicinelist.id), method: :get, class: "m" %>:
+  <%= medicinelist.number %>錠
+  <%= medicinelist.memo %></li>  
   </ul>
 <% end %>
+</div>
 
 <div class="timing-evenings">
 <div class="timing-list">夕</div>
-</div>
 <% @medicinelistevening.each do |medicinelist| %>
  <ul class="medicinelists">
-  <li><%= medicinelist.name %>:<%= medicinelist.number %>錠</li>
-</ul>
+  <li><%=  check_box_tag '', '', medicinelist.done, {'data-id' => medicinelist.id } %>
+ <%= link_to medicinelist.name, edit_medicinelist_path(medicinelist.id), method: :get, class: "m" %>:
+  <%= medicinelist.number %>錠
+  <%= medicinelist.memo %></li>
+  </ul>
 <% end %>
+</div>
 
 <div class="timing-beforesleeps">
 <div class="timing-list">寝</div>
-</div>
 <% @medicinelistbeforesleep.each do |medicinelist| %>
  <ul class="medicinelists">
-  <li><%= medicinelist.name %>:<%= medicinelist.number %>錠</li>
-</ul>
+  <li><%=  check_box_tag '', '', medicinelist.done, {'data-id' => medicinelist.id } %>
+ <%= link_to medicinelist.name, edit_medicinelist_path(medicinelist.id), method: :get, class: "m" %>:
+  <%= medicinelist.number %>錠
+  <%= medicinelist.memo %></li>
+  </ul>
 <% end %>
-
-</div>
 </div>
 
+<script>
+$(function() {
+$("input[type=checkbox]").click(function(){
+$.post('/medicinelists/' + $(this).data('id') + '/toggle');
+});
+});
+</script>
+</div>
+</div>
 <%end%>
 </main>
 <footer>
