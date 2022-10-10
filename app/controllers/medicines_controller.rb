@@ -5,7 +5,6 @@ class MedicinesController < ApplicationController
 
   def index
     @medicines = Medicine.where(user_id: current_user&.id)
-
   end
 
   def new
@@ -15,26 +14,21 @@ class MedicinesController < ApplicationController
   def create
     @medicine = Medicine.new(medicine_params)
     if @medicine.save
-      redirect_to  new_medicinelists_path
+      redirect_to new_medicinelists_path
     else
-      render action:  :new
+      render action: :new
+    end
   end
-end
-
 
   def show
-
   end
 
   def edit
- 
   end
-
-  
 
   def update
     if @medicine.update(medicine_params)
-      redirect_to  root_path
+      redirect_to root_path
     else
       render 'edit'
     end
@@ -44,11 +38,11 @@ end
     @medicine.destroy
     redirect_to medicines_path
   end
-  
+
   private
 
   def medicine_params
-    params.require(:medicine).permit(:name, :memo, :start_time, :image, :number). merge(user_id: current_user.id)
+    params.require(:medicine).permit(:name, :memo, :start_time, :image, :number).merge(user_id: current_user.id)
   end
 
   def set_medicine
@@ -56,12 +50,6 @@ end
   end
 
   def move_to_index
-    unless user_signed_in? && current_user.id == @medicine.user_id
-      redirect_to action: :index
-    end
+    redirect_to action: :index unless user_signed_in? && current_user.id == @medicine.user_id
   end
-
 end
-
-
-

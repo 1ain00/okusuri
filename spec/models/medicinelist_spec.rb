@@ -8,7 +8,7 @@ RSpec.describe Medicinelist, type: :model do
   describe '内服薬登録' do
     context '内服登録ができない場合' do
       it '薬の名前がないと登録できない' do
-        @medicinelist.name = ""
+        @medicinelist.name = ''
         @medicinelist.valid?
         expect(@medicinelist.errors.full_messages).to include("Name can't be blank")
       end
@@ -29,16 +29,12 @@ RSpec.describe Medicinelist, type: :model do
     context '内服登録ができる場合' do
       it '全ての項目が入力できていれば登録できる' do
         expect(@medicinelist).to be_valid
-    end
+      end
 
-    it 'メモが空でも登録できる' do
-      @medicinelist.memo = ''
-      expect(@medicinelist).to be_valid
+      it 'メモが空でも登録できる' do
+        @medicinelist.memo = ''
+        expect(@medicinelist).to be_valid
+      end
+    end
   end
 end
-
-
-end
-end
-
-

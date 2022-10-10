@@ -6,7 +6,6 @@ class Timing < ActiveHash::Base
     { id: 4, name: '夕' },
     { id: 5, name: '寝' }
   ]
-    include ActiveHash::Associations
-    has_many :medicinelists
-  
-  end
+  include ActiveHash::Associations
+  has_many :medicinelists
+end

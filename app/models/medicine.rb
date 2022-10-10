@@ -6,7 +6,7 @@ class Medicine < ApplicationRecord
     validates :start_time
   end
   validate :image
-    def was_attached?
-      self.image.attached?
-    end
+  def was_attached?
+    image.attached?
+  end
 end

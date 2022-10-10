@@ -7,7 +7,6 @@ RSpec.describe Medicine, type: :model do
 
   describe '内服記録' do
     context '内服記録が登録できない場合' do
-
       it '内風時間がないと登録できない' do
         @medicine.start_time = nil
         @medicine.valid?
@@ -16,4 +15,3 @@ RSpec.describe Medicine, type: :model do
     end
   end
 end
-
