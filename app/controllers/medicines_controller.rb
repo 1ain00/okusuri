@@ -30,6 +30,8 @@ end
  
   end
 
+  
+
   def update
     if @medicine.update(medicine_params)
       redirect_to  root_path

@@ -11,7 +11,7 @@
     <%= form.text_field :name,class:"list-name" %>
     <div class="list-numbers">錠数</div>
     <%= form.text_field :number,class:"list-number" %>
-        <div class="list-timings">タイミング</div>
+        <div class="list-numbers">タイミング</div>
     <%= form.collection_select(:timing_id, Timing.all, :id, :name, {}, {class:"timing-select"}) %>
 <div class="submit-list">
 <input type="submit" value="記録する" class="send-list">
@@ -29,7 +29,8 @@
 
 <% @medicinelistmorning.each do |medicinelist| %>
 <ul class="medicinelists">
-  <li><%= link_to medicinelist.name, root_path, class: "m" %>:<%= medicinelist.number %>錠</li>
+  <li><%= link_to medicinelist.name, edit_medicinelist_path(medicinelist.id), method: :get, class: "m" %>:
+  <%= medicinelist.number %>錠</li>
   </ul>
 <% end %>
 </div>
@@ -38,7 +39,7 @@
 <div class="timing-list">昼</div>
 <% @medicinelistafternoon.each do |medicinelist| %>
 <ul class="medicinelists">
-  <li><%= link_to medicinelist.name, root_path, class: "m" %>:<%= medicinelist.number %>錠</li>
+  <li><%= link_to medicinelist.name, edit_medicinelist_path(medicinelist.id), class: "m" %>:<%= medicinelist.number %>錠</li>
   </ul>
 <% end %>
 </div>
@@ -47,7 +48,7 @@
 <div class="timing-list">夕</div>
 <% @medicinelistevening.each do |medicinelist| %>
  <ul class="medicinelists">
-  <li><%= link_to medicinelist.name, root_path, class: "m" %>:<%= medicinelist.number %>錠</li>
+  <li><%= link_to medicinelist.name, edit_medicinelist_path(medicinelist.id), class: "m" %>:<%= medicinelist.number %>錠</li>
 </ul>
 <% end %>
 </div>
@@ -56,7 +57,7 @@
 <div class="timing-list">寝</div>
 <% @medicinelistbeforesleep.each do |medicinelist| %>
  <ul class="medicinelists">
-  <li><%= link_to medicinelist.name, root_path, class: "m" %>:<%= medicinelist.number %>錠</li>
+  <li><%= link_to medicinelist.name, edit_medicinelist_path(medicinelist.id), class: "m" %>:<%= medicinelist.number %>錠</li>
 </ul>
 <% end %>
 </div>

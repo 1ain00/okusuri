@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   root to: 'medicines#index'
   resources :medicines 
   resources :users, only: :show
-  resource :medicinelists 
+  resources :medicinelists 
 end
 
