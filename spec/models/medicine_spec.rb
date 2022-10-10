@@ -12,7 +12,8 @@ RSpec.describe Medicine, type: :model do
         @medicine.start_time = nil
         @medicine.valid?
         expect(@medicine.errors.full_messages).to include("Start time can't be blank")
-        end
       end
     end
   end
+end
+

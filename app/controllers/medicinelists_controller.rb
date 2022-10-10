@@ -1,5 +1,5 @@
 class MedicinelistsController < ApplicationController
-  before_action :set_medicinelist, only: [:edit, :destroy]
+  before_action :set_medicinelist, only: [:edit, :destroy, :update]
   protect_from_forgery 
 
 
@@ -49,7 +49,7 @@ end
 private
 
   def medicinelist_params
-    params.require(:medicinelist).permit(:name, :number, :timing_id)
+    params.require(:medicinelist).permit(:name, :number, :timing_id, :memo)
     .merge(user_id: current_user.id)
   end
 

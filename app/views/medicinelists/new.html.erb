@@ -12,11 +12,13 @@
     <%= form.text_field :name,class:"list-name" %>
     <div class="list-numbers">錠数</div>
     <%= form.text_field :number,class:"list-number" %>
+  <div class="form-memos">メモ</div>
+    <%= form.text_field :memo, class:"list-memo" %>
+ 
         <div class="list-numbers">タイミング</div>
     <%= form.collection_select(:timing_id, Timing.all, :id, :name, {}, {class:"timing-select"}) %>
 <div class="submit-list">
 <input type="submit" value="記録する" class="send-list">
-<div class="message">薬の名前をクリックして編集</div>
 
 </div>
 </div>
@@ -24,6 +26,7 @@
 <div class= "timing-lists">
 
 <div class="medicinelist">
+<div class="message">薬の名前をクリックして編集</div>
 
 <div class="timing-mornings">
 <div class="timing-list">朝</div>
@@ -31,7 +34,8 @@
 <ul class="medicinelists">
   <li><%=  check_box_tag '', '', medicinelist.done, {'data-id' => medicinelist.id } %>
   <%= link_to medicinelist.name, edit_medicinelist_path(medicinelist.id), method: :get, class: "m" %>:
-  <%= medicinelist.number %>錠</li>
+  <%= medicinelist.number %>錠
+  <%= medicinelist.memo %></li>
   </ul>
 <% end %>
 
@@ -42,7 +46,9 @@
 <% @medicinelistafternoon.each do |medicinelist| %>
 <ul class="medicinelists">
   <li><%=  check_box_tag '', '', medicinelist.done, {'data-id' => medicinelist.id } %>
-  <%= link_to medicinelist.name, edit_medicinelist_path(medicinelist.id), class: "m" %>:<%= medicinelist.number %>錠</li>
+ <%= link_to medicinelist.name, edit_medicinelist_path(medicinelist.id), method: :get, class: "m" %>:
+  <%= medicinelist.number %>錠
+  <%= medicinelist.memo %></li>  
   </ul>
 <% end %>
 </div>
@@ -52,8 +58,10 @@
 <% @medicinelistevening.each do |medicinelist| %>
  <ul class="medicinelists">
   <li><%=  check_box_tag '', '', medicinelist.done, {'data-id' => medicinelist.id } %>
-  <%= link_to medicinelist.name, edit_medicinelist_path(medicinelist.id), class: "m" %>:<%= medicinelist.number %>錠</li>
-</ul>
+ <%= link_to medicinelist.name, edit_medicinelist_path(medicinelist.id), method: :get, class: "m" %>:
+  <%= medicinelist.number %>錠
+  <%= medicinelist.memo %></li>
+  </ul>
 <% end %>
 </div>
 
@@ -62,8 +70,10 @@
 <% @medicinelistbeforesleep.each do |medicinelist| %>
  <ul class="medicinelists">
   <li><%=  check_box_tag '', '', medicinelist.done, {'data-id' => medicinelist.id } %>
-  <%= link_to medicinelist.name, edit_medicinelist_path(medicinelist.id), class: "m" %>:<%= medicinelist.number %>錠</li>
-</ul>
+ <%= link_to medicinelist.name, edit_medicinelist_path(medicinelist.id), method: :get, class: "m" %>:
+  <%= medicinelist.number %>錠
+  <%= medicinelist.memo %></li>
+  </ul>
 <% end %>
 </div>
 

@@ -12,8 +12,11 @@
     <%= form.text_field :name,class:"list-name" %>
     <div class="list-numbers">錠数</div>
     <%= form.text_field :number,class:"list-number" %>
+    <div class="form-memos">メモ</div>
+    <%= form.text_field :memo, class:"list-memo" %>
         <div class="list-numbers">タイミング</div>
     <%= form.collection_select(:timing_id, Timing.all, :id, :name, {}, {class:"timing-select"}) %>
+    
 <div class="submit-list">
 <input type="submit" value="編集する" class="send">
 <%= link_to '戻る', new_medicinelist_path, class: "list-back" %>
