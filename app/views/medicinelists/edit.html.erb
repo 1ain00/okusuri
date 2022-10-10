@@ -1,7 +1,9 @@
 
 <%= form_with(model: @medicinelist, local: true) do |form| %>
 <div class="titele">
+
  <div class="lists">
+ 
     <div class="list-names">薬の名前</div>
     <%= form.text_field :name,class:"list-name" %>
     <div class="list-numbers">錠数</div>

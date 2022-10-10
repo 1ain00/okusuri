@@ -1,9 +1,10 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
 <body>
 <header>
 <%= render "shared/header" %>
 </header>
 <main>
-
 <%= form_with(model: @medicinelist, local: true) do |form| %>
 <div class="titele">
  <div class="lists">
@@ -26,20 +27,27 @@
 
 <div class="timing-mornings">
 <div class="timing-list">朝</div>
-
 <% @medicinelistmorning.each do |medicinelist| %>
 <ul class="medicinelists">
-  <li><%= link_to medicinelist.name, edit_medicinelist_path(medicinelist.id), method: :get, class: "m" %>:
+  <li><%=  check_box_tag '', '', medicinelist.done, {'data-id' => medicinelist.id } %>
+  <%= link_to medicinelist.name, edit_medicinelist_path(medicinelist.id), method: :get, class: "m" %>:
   <%= medicinelist.number %>錠</li>
   </ul>
 <% end %>
+<script>
+$(function() {
+$("input[type=checkbox]").click(function(){
+$.post('/medicinelists/' + $(this).data('id') + '/toggle');
+});
+});
+</script>
 </div>
 
 <div class="timing-afternoons">
 <div class="timing-list">昼</div>
 <% @medicinelistafternoon.each do |medicinelist| %>
 <ul class="medicinelists">
-  <li><%= link_to medicinelist.name, edit_medicinelist_path(medicinelist.id), class: "m" %>:<%= medicinelist.number %>錠</li>
+  <li><%= check_box_tag '', '' %><%= link_to medicinelist.name, edit_medicinelist_path(medicinelist.id), class: "m" %>:<%= medicinelist.number %>錠</li>
   </ul>
 <% end %>
 </div>
@@ -48,7 +56,7 @@
 <div class="timing-list">夕</div>
 <% @medicinelistevening.each do |medicinelist| %>
  <ul class="medicinelists">
-  <li><%= link_to medicinelist.name, edit_medicinelist_path(medicinelist.id), class: "m" %>:<%= medicinelist.number %>錠</li>
+  <li><%= check_box_tag '', '' %><%= link_to medicinelist.name, edit_medicinelist_path(medicinelist.id), class: "m" %>:<%= medicinelist.number %>錠</li>
 </ul>
 <% end %>
 </div>
@@ -57,7 +65,7 @@
 <div class="timing-list">寝</div>
 <% @medicinelistbeforesleep.each do |medicinelist| %>
  <ul class="medicinelists">
-  <li><%= link_to medicinelist.name, edit_medicinelist_path(medicinelist.id), class: "m" %>:<%= medicinelist.number %>錠</li>
+  <li><%= check_box_tag '', '' %><%= link_to medicinelist.name, edit_medicinelist_path(medicinelist.id), class: "m" %>:<%= medicinelist.number %>錠</li>
 </ul>
 <% end %>
 </div>

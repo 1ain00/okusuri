@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   resources :medicines 
   resources :users, only: :show
   resources :medicinelists 
+  post '/medicinelists/:id/toggle' => 'medicinelists#toggle'
+
 end
 
