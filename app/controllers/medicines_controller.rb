@@ -14,7 +14,7 @@ class MedicinesController < ApplicationController
   def create
     @medicine = Medicine.new(medicine_params)
     if @medicine.save
-      redirect_to new_medicinelists_path
+      redirect_to root_path
     else
       render action: :new
     end
