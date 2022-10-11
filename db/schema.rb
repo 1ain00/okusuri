@@ -34,9 +34,9 @@ ActiveRecord::Schema.define(version: 2022_10_07_082239) do
   end
 
   create_table "medicinelists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.string "number"
-    t.integer "user_id"
+    t.string "name", null: false
+    t.string "number", null: false
+    t.integer "user_id", null: false
     t.integer "timing_id", null: false
     t.text "memo"
     t.boolean "done", default: false
