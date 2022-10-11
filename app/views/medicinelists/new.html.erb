@@ -19,8 +19,8 @@
     <%= form.collection_select(:timing_id, Timing.all, :id, :name, {}, {class:"timing-select"}) %>
 <div class="submit-list">
 <input type="submit" value="記録する" class="send-list">
-
 </div>
+<%= link_to '戻る', root_path, class: "back" %>
 </div>
 
 <div class= "timing-lists">
