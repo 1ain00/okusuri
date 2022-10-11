@@ -52,6 +52,14 @@ https://docs.google.com/spreadsheets/d/16GqPUVmL8EaHS8k2xYMZ3NDYsOteS8O2UT9QBqzS
 
 [![Image from Gyazo](https://i.gyazo.com/e9a09ee86084fb2098db9bcb240f0056.gif)](https://gyazo.com/e9a09ee86084fb2098db9bcb240f0056)# 実装予定の機能
 
+# 開発環境
+
+今後は下記２項目を実装予定
+
+* 内服一覧機能にて、チェックボックスを一括解除する仕様
+
+* 内服記録機能にて、投稿できる「薬の名前」、「錠数」のフォームをユーザーの任意で動的に追加し、前述２項目を複数登録できる仕様
+
 # データベース設計
 
 ![ER-okusuri](https://user-images.githubusercontent.com/111730430/195013546-fa7d337f-d051-4437-8399-28a04344007f.png)
