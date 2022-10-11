@@ -32,13 +32,12 @@
 <div class="timing-list">朝</div>
 <% @medicinelistmorning.each do |medicinelist| %>
 <ul class="medicinelists">
-  <li><%=  check_box_tag '', '', medicinelist.done, {'data-id' => medicinelist.id } %>
+  <li><%=  check_box_tag '', '', medicinelist.done, {'data-id' => medicinelist.id }  %>
   <%= link_to medicinelist.name, edit_medicinelist_path(medicinelist.id), method: :get, class: "m" %>:
   <%= medicinelist.number %>錠
   <%= medicinelist.memo %></li>
   </ul>
 <% end %>
-
 </div>
 
 <div class="timing-afternoons">
@@ -84,6 +83,7 @@ $.post('/medicinelists/' + $(this).data('id') + '/toggle');
 });
 });
 </script>
+
 </div>
 </div>
 <%end%>
