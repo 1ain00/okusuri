@@ -1,14 +1,18 @@
 class MedicinelistsController < ApplicationController
   before_action :set_medicinelist, only: [:edit, :destroy, :update]
+  before_action :authenticate_user!
+  before_action :move_to_index, only: :edit
+
   protect_from_forgery
 
   def new
-    @medicinelists = Medicinelist.all
+    @medicinelists = Medicinelist.where(user_id: current_user&.id)
     @medicinelist = Medicinelist.new
     @medicinelistmorning = Medicinelist.where(timing_id: '2')
     @medicinelistafternoon = Medicinelist.where(timing_id: '3')
     @medicinelistevening = Medicinelist.where(timing_id: '4')
     @medicinelistbeforesleep = Medicinelist.where(timing_id: '5')
+
   end
 
   def create
@@ -49,4 +53,9 @@ class MedicinelistsController < ApplicationController
   def set_medicinelist
     @medicinelist = Medicinelist.find(params[:id])
   end
+
+  def move_to_index
+    redirect_to action: :new unless user_signed_in? && current_user.id == @medicinelist.user_id
+  end
+
 end
