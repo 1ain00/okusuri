@@ -1,10 +1,4 @@
-.list-timings{
-margin-top: 10px;
-}
-.timing-select{
-padding: 5px 10px;;
-width: 203px;
-}
+
 
 .send-list{
   margin-top: 10px;
@@ -22,9 +16,23 @@ width: 203px;
 
 .list-names{
   margin-top: 30px;
+}
+
+.list-name{
   margin-bottom: 10px;
 }
 
+.list-number{
+  margin-bottom: 5px;
+}
+
+.list-timings{
+  margin-top: 10px;
+  }
+  .list-timing{
+  padding: 5px 10px;;
+  width: 203px;
+  }
 
 .timing-lists{
   flex-grow: 1;
@@ -41,6 +49,8 @@ margin-left: 20px;
 margin: 40px 0 30px 30px;
 
 }
+
+
 
 
 .m{
