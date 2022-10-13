@@ -18,7 +18,7 @@
     <%= form.collection_select(:timing_id, Timing.all, :id, :name, {}, {class:"timing-select"}) %>
     
 <div class="submit-list">
-<input type="submit" value="編集する" class="send">
+<input type="submit" value="記録する" class="send">
 <%= link_to '戻る', new_medicinelist_path, class: "list-back" %>
 <%= link_to '消去', medicinelist_path(@medicinelist.id), method: :delete, class:"list-deleat" %>
 

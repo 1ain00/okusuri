@@ -12,11 +12,10 @@
     <%= form.text_field :name,class:"list-name" %>
     <div class="list-numbers">錠数</div>
     <%= form.text_field :number,class:"list-number" %>
-  <div class="form-memos">メモ</div>
+        <div class="list-timings">タイミング</div>
+    <%= form.collection_select(:timing_id, Timing.all, :id, :name, {}, {class:"list-timing"}) %>
+      <div class="form-memos">メモ</div>
     <%= form.text_field :memo, class:"list-memo" %>
- 
-        <div class="list-numbers">タイミング</div>
-    <%= form.collection_select(:timing_id, Timing.all, :id, :name, {}, {class:"timing-select"}) %>
 <div class="submit-list">
 <input type="submit" value="記録する" class="send-list">
 </div>
@@ -31,6 +30,7 @@
 <div class="timing-mornings">
 <div class="timing-list">朝</div>
 <% @medicinelistmorning.each do |medicinelist| %>
+    <% if medicinelist.user_id == current_user.id %>
 <ul class="medicinelists">
   <li><%=  check_box_tag '', '', medicinelist.done, {'data-id' => medicinelist.id }  %>
   <%= link_to medicinelist.name, edit_medicinelist_path(medicinelist.id), method: :get, class: "m" %>:
@@ -38,11 +38,13 @@
   <%= medicinelist.memo %></li>
   </ul>
 <% end %>
+<%end%>
 </div>
 
 <div class="timing-afternoons">
 <div class="timing-list">昼</div>
 <% @medicinelistafternoon.each do |medicinelist| %>
+    <% if medicinelist.user_id == current_user.id %>
 <ul class="medicinelists">
   <li><%=  check_box_tag '', '', medicinelist.done, {'data-id' => medicinelist.id } %>
  <%= link_to medicinelist.name, edit_medicinelist_path(medicinelist.id), method: :get, class: "m" %>:
@@ -50,11 +52,13 @@
   <%= medicinelist.memo %></li>  
   </ul>
 <% end %>
+<%end%>
 </div>
 
 <div class="timing-evenings">
 <div class="timing-list">夕</div>
 <% @medicinelistevening.each do |medicinelist| %>
+    <% if medicinelist.user_id == current_user.id %>
  <ul class="medicinelists">
   <li><%=  check_box_tag '', '', medicinelist.done, {'data-id' => medicinelist.id } %>
  <%= link_to medicinelist.name, edit_medicinelist_path(medicinelist.id), method: :get, class: "m" %>:
@@ -62,11 +66,13 @@
   <%= medicinelist.memo %></li>
   </ul>
 <% end %>
+<%end%>
 </div>
 
 <div class="timing-beforesleeps">
 <div class="timing-list">寝</div>
 <% @medicinelistbeforesleep.each do |medicinelist| %>
+    <% if medicinelist.user_id == current_user.id %>
  <ul class="medicinelists">
   <li><%=  check_box_tag '', '', medicinelist.done, {'data-id' => medicinelist.id } %>
  <%= link_to medicinelist.name, edit_medicinelist_path(medicinelist.id), method: :get, class: "m" %>:
@@ -74,6 +80,7 @@
   <%= medicinelist.memo %></li>
   </ul>
 <% end %>
+<%end%>
 </div>
 
 <script>
@@ -86,6 +93,7 @@ $.post('/medicinelists/' + $(this).data('id') + '/toggle');
 
 </div>
 </div>
+
 <%end%>
 </main>
 <footer>
